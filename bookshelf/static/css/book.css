@@ -1,0 +1,51 @@
+body 
+{
+  background-color: white;
+}
+
+A:link 
+{ 
+	text-decoration: none;
+	color: black;
+} 
+
+A:visited 
+{
+	text-decoration: none; 
+	color: black;
+}
+A:active 
+{
+	text-decoration: none;
+	color: black;
+}
+
+.card {
+	width: 480px;
+	height: 300px;
+}
+
+.b_author {
+	width: 235px;
+}
+
+.b_city {
+	width: 235px;
+}
+
+.b_title {
+	width: 235px;
+}
+
+.card.hide {
+	display: none;
+}
+
+.input_add {
+	line-height:100%;
+	border: 0px solid;
+	background: #D1C4B4;
+	font-size:28px;
+	font-family: Palatino Linotype;
+}
+

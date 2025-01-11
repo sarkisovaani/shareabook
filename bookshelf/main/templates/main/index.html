@@ -1,0 +1,61 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset= "UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<link rel="stylesheet" href="{% static "/css/book.css" %}">
+	<title>Main page</title>
+	<script type="text/javascript">
+	function OpenBook(id) 
+	{
+		window.open("/exchange.html?book=" + id,'_blank').focus();
+    }
+	</script>
+</head>
+<body>
+<div style="width: 100%; height: 100%; position: relative;">
+    <img style="width: 1920px; height: 250px; left: 0px; top: 136px; position: absolute" src="{% static "/img/view-books-arrangement.png" %}" />
+    <div style="width: 1675.84px; height: 72.45px; left: 122px; top: 403px; position: absolute; background: #D1C4B4; border-radius: 78.56px"></div>
+    <div style="width: 1920px; height: 250px; left: 0px; top: 136px; position: absolute"></div>
+    <div style="left: 564px; top: 420px; width:900px; position: absolute; color: black; font-size: 28px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">ОТДАТЬ, ОБМЕНЯТЬ, ЗАБРАТЬ КНИГУ УЖЕ СЕГОДНЯ.</div>
+    <div style="left: 462px; top: 490px; width:1300px; position: absolute; color: black; font-size: 28px; font-family: Palatino Linotype; font-weight: 700; letter-spacing: 28px; word-wrap: break-word">ПОСЛЕДНИЕ ПРЕДЛОЖЕНИЯ</div>
+
+    <div style="width: 1920px; height: 136px; left: 0px; top: 0px; position: absolute">
+        <div style="width: 233px; height: 84px; left: 100px; top: 37px; position: absolute; color: black; font-size: 32px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">РАЗДЕЛИ КНИГУ!</div>
+    
+		<div style="width: 414px; height: 38px; left: 842px; top: 55px; position: absolute; color: black; font-size: 28px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">
+		<a href="/add.html">СОЗДАТЬ ОБЪЯВЛЕНИЕ</a>
+		</div>
+				
+        <div style="width: 122px; height: 38px; left: 1688px; top: 55px; position: absolute; color: black; font-size: 28px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">
+		<a href="/search.html">ПОИСК</a>
+		</div>
+	
+		<div style="width: 50px; height: 50px; left: 1830px; top: 49px; position: absolute; background: #C99574; border-radius: 9999px"></div>
+		<img style="width: 40px; height: 40px; left: 1835px; top: 54px; position: absolute; " src="{% static "/img/majesticons_search-line.png" %}" />
+        
+		<div style="width: 50px; height: 50px; left: 40px; top: 49px; position: absolute; background: #C99574; border-radius: 9999px"></div>
+		<img style="width: 40px; height: 40px; left: 48px; top: 55px; position: absolute; " src="{% static "/img/tabler_book.png" %}" %}" />	
+			
+        <div style="width: 7.23px; height: 15.90px; left: 740.96px; top: 64.65px; position: absolute; border: 3px white solid"></div>
+        <div style="width: 7.23px; height: 18.79px; left: 740.96px; top: 73.32px; position: absolute; border: 3px white solid"></div>
+    </div>
+
+    {% for el in books %}
+    <div class="card" style="left: {{ el.x }}px; top: {{ el.y }}px; position: absolute">
+    <div style="width: 240px; height: 300px; left: 10px; top: 107px; position: absolute; border-radius: 22.50px"></div>
+    <div class="b_author" style="width: 235px; height: 50px; left: 245px; top: 32px; position: absolute; color: black; font-size: 18px; font-family: Palatino Linotype; font-weight: 700; letter-spacing: 1.80px; word-wrap: break-word">{{ el.writer }}</div>
+    <div class="b_title" style="width: 235px; height: 25px; left: 245px; top: 82px; position: absolute; color: black; font-size: 16px; font-family: Palatino Linotype; font-weight: 400; word-wrap: break-word">{{ el.title }}</div>
+    <div style="width: 220px; height: 75px; left: 250px; top: 144px; position: absolute; background: #D1C4B4; border-radius: 22.50px"></div>
+	<button style="width: 160px; height: 48px; left: 280px; top: 157.50px; position: absolute; text-align: center; border: 0px solid;  background: #D1C4B4; color: black; font-size: 18px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word" onclick="OpenBook({{ el.id }});">
+	УЗНАТЬ<br/>ПОДРОБНЕЕ
+	</button>
+    <div class="b_city" style="width: 235px; height: 25px; left: 245px; top: 7px; position: absolute; color: black; font-size: 12px; font-family: Palatino Linotype; font-weight: 400; word-wrap: break-word">{{ el.city }}</div>
+    <img style="width: 240px; height: 300px; left: 0px; top: 0px; position: absolute; border-radius: 22.50px" src="{% static "/img/image2.png" %}" />
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

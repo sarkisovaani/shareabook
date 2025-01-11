@@ -1,0 +1,98 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset= "UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<link rel="stylesheet" href="{% static "/css/book.css" %}">
+	<title>Add page</title>
+</head>
+<body>
+<form method="POST">
+{% csrf_token %}
+
+<div style="width: 100%; height: 100%; position: relative; background: white">
+    <div style="width: 1920px; height: 136px; left: 0px; top: 0px; position: absolute">
+        <div style="width: 233px; height: 84px; left: 100px; top: 37px; position: absolute; color: black; font-size: 32px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">
+		<a href="/">РАЗДЕЛИ КНИГУ!</a></div>
+        <div style="width: 414px; height: 38px; left: 842px; top: 55px; position: absolute; color: #C99574; font-size: 28px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">СОЗДАТЬ ОБЪЯВЛЕНИЕ</div>
+        <div style="width: 122px; height: 38px; left: 1688px; top: 55px; position: absolute; color: black; font-size: 28px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">
+		<a href="/search.html">ПОИСК</a></div>
+        <div style="width: 50px; height: 50px; left: 1830px; top: 49px; position: absolute; background: #C99574; border-radius: 9999px"></div>
+        <div style="width: 50px; height: 50px; left: 40px; top: 49px; position: absolute; background: #C99574; border-radius: 9999px"></div>
+		<div style="width: 50px; height: 50px; left: 1830px; top: 49px; position: absolute; background: #C99574; border-radius: 9999px"></div>
+		<img style="width: 40px; height: 40px; left: 1835px; top: 54px; position: absolute; " src="{% static "/img/majesticons_search-line.png" %}" />
+        
+		<div style="width: 50px; height: 50px; left: 40px; top: 49px; position: absolute; background: #C99574; border-radius: 9999px"></div>
+		<img style="width: 40px; height: 40px; left: 48px; top: 55px; position: absolute; " src="{% static "/img/tabler_book.png" %}" />
+
+    </div>
+    <div style="width: 1362px; height: 58.92px; left: 269.67px; top: 412px; position: absolute; background: #D1C4B4; border-radius: 63.89px"></div>
+    <div style="width: 1920px; height: 250px; left: 0px; top: 136px; position: absolute">
+
+        <img style="width: 1920px; height: 250px; left: 0px; top: 0px; position: absolute" src="{% static "/img/view-books-arrangement.png" %}" />
+    </div>
+		<span> {{ error }} </span>
+    <div style="width: 1229.31px; height: 425.91px; left: 336px; top: 597px; position: absolute; background: white">
+        <div style="width: 985.18px; height: 51.31px; left: 121.63px; top: -98px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.city }}
+
+		</div>
+		</div>
+        <div style="left: 142.45px; top: -123px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">ГОРОД*</div>
+        <div style="width: 985.18px; height: 51.31px; left: 121.73px; top: -18.13px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.nickname }}
+
+		</div>
+		</div>
+        <div style="left: 143.10px; top: -41px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">ИМЯ/НИКНЕЙМ*</div>
+        <div style="width: 985.18px; height: 51.31px; left: 121.63px; top: 59px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.title }}
+		
+		</div>		
+		</div>
+        <div style="left: 142.45px; top: 37px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">НАЗВАНИЕ КНИГИ*</div>
+        <div style="width: 985.18px; height: 51.31px; left: 121.63px; top: 134px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.writer }}
+
+		</div>		
+		</div>
+        <div style="left: 142.66px; top: 112px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">ИНИЦИАЛЫ АВТОРА*</div>
+        <div style="width: 985.18px; height: 51.31px; left: 121.82px; top: 212px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.description }}
+		
+		</div>		
+		</div>
+        <div style="left: 142.85px; top: 189px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">ОПИСАНИЕ КНИГИ*</div>
+        <div style="width: 985.18px; height: 51.31px; left: 121.73px; top: 290px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.exchange }}
+
+		</div>		
+		</div>
+        <div style="left: 142.45px; top: 266px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">ОБМЕН НА* (НАЗВАНИЕ КНИГИ, ИНИЦИАЛЫ АВТОРА)</div>
+        <div style="width: 985.18px; height: 51.31px; left: 121.73px; top: 368px; position: absolute; background: #D1C4B4; border-radius: 46.18px; border: 3.59px #C99574 solid">
+		<div style="width: 700px; height: 45px; left: 21px; top: 6px; position: absolute;">
+		{{ form.telegram }}
+
+		</div>
+		</div>
+        <div style="width: 374.26px; height: 18.78px; left: 143.10px; top: 345px; position: absolute; color: black; font-size: 18.13px; font-family: Palatino Linotype; font-weight: 700; word-wrap: break-word">КОНТАКТ В TELEGRAM*(ССЫЛКОЙ)</div>
+    </div>
+    <div style="top: 419px; width: 1300px; left: 434px; height: 35px; position: absolute; color: black; font-size: 32px; font-family: Palatino Linotype; font-weight: 700; letter-spacing: 28px; word-wrap: break-word">ЗАПОЛНИТЕ ДАННЫЕ НИЖЕ</div>
+    <button type="submit" style="width: 1362px; height: 58.92px; left: 270px; top: 1032px; border: 0px solid; position: absolute; background: #D1C4B4; border-radius: 63.89px ">
+    <div style="top: 10px; width: 939px; height: 35px; left: 211px; ; position: absolute; color: black; font-size: 32px; font-family: Palatino Linotype; font-weight: 700; letter-spacing: 28px; word-wrap: break-word">
+	ОТПРАВИТЬ ФОРМУ
+	</div>
+	</button>
+
+</div>
+</form>
+</body>
+</html>
