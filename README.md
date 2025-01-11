@@ -1,2 +1,2 @@
 # shareabook
-Share a book
+Share a book project
