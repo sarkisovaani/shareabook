@@ -8,6 +8,24 @@
 	<link rel="stylesheet" href="{% static "/css/book.css" %}">
 
 	<script type="text/javascript">
+
+	function SetPosition()
+	{
+		var book_index = 0;
+
+		const elasticItems = document.querySelectorAll('.card')
+
+		elasticItems.forEach((el) => {
+			
+			if (!el.classList.contains('hide'))
+			{
+				el.style.left = (book_index % 4)*480 + 'px';
+				el.style.top = (497 + Math.floor(book_index / 4)*314)  + 'px';
+				book_index++;
+			}
+		})
+	}
+
 	function ClearField() 
 	{
 		document.getElementById("bookname").value = "";
@@ -16,6 +34,8 @@
 		elasticItems.forEach((el) => {
 				el.classList.remove('hide')
 			})
+
+		SetPosition();
     }
     function OpenBook(id) 
 	{
@@ -73,14 +93,16 @@
 		const elasticItems = document.querySelectorAll('.card')
 		const searchRegExp = new RegExp(value, 'gi')
 
-		if (value === '') {
+		if (value == '') {
 			elasticItems.forEach((el) => {
 				el.classList.remove('hide')
 			})
+			SetPosition();
 			return
 		}
 
 		elasticItems.forEach((el) => {
+			
 			const innerTitle = el.querySelector('.b_title')
 			const innerAuthor = el.querySelector('.b_author')
 			const innerCity = el.querySelector('.b_city')
@@ -99,6 +121,9 @@
 				el.classList.add('hide')
 			}
 		})
+
+		SetPosition();
+
 	})
 	</script>
 
